@@ -1,0 +1,309 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/iv-S0Cgs4bGKKC68OyGqYVCBEII\"",
+  "nextPageToken": "CAoQAA",
+  "regionCode": "US",
+  "pageInfo": { "totalResults": 320, "resultsPerPage": 10 },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/Q1Yvda1WLpPo6M8IaDEqczBqvGU\"",
+      "id": { "kind": "youtube#video", "videoId": "naqo74kB9lA" },
+      "snippet": {
+        "publishedAt": "2019-01-20T02:28:45.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "Full Game Recap: Bucks vs Magic | Bledsoe Scores Season-High 30",
+        "description": "Eric Bledsoe recorded a season-high 30 points (12-14 FG), to go along with 7 rebounds and 2 assists to lead the Bucks to a 118-108 victory over the Magic.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/naqo74kB9lA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/naqo74kB9lA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/naqo74kB9lA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/2ORB8-hrzx5bZhKtseaYe64uACc\"",
+      "id": { "kind": "youtube#video", "videoId": "LtNIZBoPrwM" },
+      "snippet": {
+        "publishedAt": "2019-01-19T04:15:39.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "Full Game Recap: Spurs vs Timberwolves | LaMarcus Aldridge Leads All Scorers",
+        "description": "The Spurs ended the game on a 17-7 run to defeat the Timberwolves, 116-113 tonight in Minnesota. LaMarcus Aldridge led all scorers with 25 points (8-20 FG) ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LtNIZBoPrwM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LtNIZBoPrwM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LtNIZBoPrwM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/VrY1B12zx2HFQE2P_W3L1VLMwlI\"",
+      "id": { "kind": "youtube#video", "videoId": "PG8Y-FK5OAg" },
+      "snippet": {
+        "publishedAt": "2019-01-20T05:28:34.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "Full Game Recap: Cavaliers vs Nuggets | Jokic Records 6th Triple-Double Of Season",
+        "description": "The Nuggets defeated the Cavaliers in Denver by a final score of 124-102. Nikola Jokic led the way for the Nuggets with his 6th triple-double of the season and ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PG8Y-FK5OAg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PG8Y-FK5OAg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PG8Y-FK5OAg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/TD_XFS4fkm32Sw1GCghgJxJi1qA\"",
+      "id": { "kind": "youtube#video", "videoId": "QdDi8M26-sw" },
+      "snippet": {
+        "publishedAt": "2019-01-20T03:47:21.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "Full Game Recap: Heat vs Bulls | Richardson Leads MIA Over CHI",
+        "description": "The Heat outscored the Bulls 62-46 in the second half en route to a 117-103 victory over the Bulls in Chicago. Josh Richardson led the Heat with a game-high ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QdDi8M26-sw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QdDi8M26-sw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QdDi8M26-sw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/Rt3hVwM1X7ejLuMQ1o1c8iaskA0\"",
+      "id": { "kind": "youtube#video", "videoId": "wo5XqDjXKN4" },
+      "snippet": {
+        "publishedAt": "2019-01-17T03:54:07.000Z",
+        "channelId": "UCK0zKIt5hZSAz4Nkw4HA20A",
+        "title": "Dirk Nowitzki Highlights | 6 Points vs San Antonio Spurs",
+        "description": "Highlights against the Spurs. January 16, 2019. Mavs lost 105-101. DISCLAIMER - All clips property of the NBA. No copyright infringement is intended.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/wo5XqDjXKN4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/wo5XqDjXKN4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/wo5XqDjXKN4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Dirk Nowitzki Highlights",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/S4lwTyttUPWI5RtwBrjZAStubh4\"",
+      "id": { "kind": "youtube#video", "videoId": "tfRAGekg8bI" },
+      "snippet": {
+        "publishedAt": "2019-01-20T03:02:47.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "Full Game Recap: Grizzlies vs Raptors | TOR Records Franchise-Record 19 Steals",
+        "description": "The Raptors recorded a franchise-record 19 steals en route to a 38-7 advantage in points off turnovers and a 119-90 victory over the Grizzlies in Toronto. Danny ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/tfRAGekg8bI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/tfRAGekg8bI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/tfRAGekg8bI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/9ZcUgiVx4exMBclwe7Ulm7VJABk\"",
+      "id": { "kind": "youtube#video", "videoId": "NeixJkgTHjw" },
+      "snippet": {
+        "publishedAt": "2019-01-17T04:52:17.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "James Harden GOES OFF For 58 Points Against Brooklyn | January 16, 2019",
+        "description": "The Nets defeated the Rockets, 145-142 tonight in overtime. James Harden led all scorers with 58 points (16-34 FG), to go along with 10 rebounds and 6 assists ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/NeixJkgTHjw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/NeixJkgTHjw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/NeixJkgTHjw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/bHf_gfnA5yfnSJj4YeBm4C32s_4\"",
+      "id": { "kind": "youtube#video", "videoId": "shPXHJc4_DU" },
+      "snippet": {
+        "publishedAt": "2019-01-19T02:48:31.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "Full Game Recap: Grizzlies vs Celtics | Kyrie Goes For 38 Points & 11 Assists",
+        "description": "The Celtics defeated the Grizzlies, 122-116 tonight in Boston. Kyrie Irving led all scorers with 38 points (14-21 FG) to go with 11 assists and 7 rebounds for the ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/shPXHJc4_DU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/shPXHJc4_DU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/shPXHJc4_DU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/i3nI2M9AIAHkRs9dITpgqOGkVBg\"",
+      "id": { "kind": "youtube#video", "videoId": "MGU9DAKHNB4" },
+      "snippet": {
+        "publishedAt": "2019-01-18T04:03:03.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "The Suns and Raptors Engage In a Fantastic Finish | January 17, 2019",
+        "description": "Pascal Siakam hit a game-winning layup as time expired, pushing the Raptors past the Suns 111-109 tonight in Toronto. Serge Ibaka scored a team-high 22 ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/MGU9DAKHNB4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/MGU9DAKHNB4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/MGU9DAKHNB4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/RUNRspNLt7Je6PBrwCRRaMe_hIE\"",
+      "id": { "kind": "youtube#video", "videoId": "LPLgZsFiVdw" },
+      "snippet": {
+        "publishedAt": "2019-01-19T03:18:21.000Z",
+        "channelId": "UCWJ2lWNubArHWmf3FIHbfcQ",
+        "title": "D'Angelo Russell Ties a CAREER-HIGH With 40 Points | January 18, 2019",
+        "description": "The Nets defeated the Magic, 117-115 tonight in Orlando. D'Angelo Russell led all scorers with a season-high 40 points (ties his career-high) to go with 7 assists ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/LPLgZsFiVdw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/LPLgZsFiVdw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/LPLgZsFiVdw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "NBA",
+        "liveBroadcastContent": "none"
+      }
+    }
+  ]
+}
