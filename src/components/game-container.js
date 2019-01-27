@@ -1,12 +1,30 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import HighlightVideo from './highlight-video'
+import styled from 'styled-components'
+
+import { H2 } from '../theme/elements.js'
+
+const HighlightRow = styled.div`
+  display: flex;
+  flex-direction: 'row';
+  max-width: 100vw;
+  overflow-x: scroll;
+`
+
+const Score = styled.p`
+  text-align: center;
+  margin: 0 0 16px;
+`
 
 const GameContainer = ({ game, thumbnails }) => {
   return (
     <>
-      <h2>{game.title}</h2>
-      <p>{game.summary}</p>
-      <div>
+      <H2>{game.title}</H2>
+      <Score>
+        {game.vTeam.triCode} {game.vTeam.score} - {game.hTeam.triCode}{' '}
+        {game.hTeam.score}
+      </Score>
+      <HighlightRow>
         {game.highlights.items.map(video => {
           const thumbnail = thumbnails.filter(thumbnail => {
             return thumbnail.node.childImageSharp.fixed.src.includes(
@@ -15,14 +33,15 @@ const GameContainer = ({ game, thumbnails }) => {
           })[0].node.childImageSharp.fixed
 
           return (
-            <Img
-              fixed={thumbnail}
+            <HighlightVideo
               key={video.id.videoId}
-              alt={video.snippet.description}
+              id={video.id.videoId}
+              thumbnail={thumbnail}
+              video={video}
             />
           )
         })}
-      </div>
+      </HighlightRow>
     </>
   )
 }

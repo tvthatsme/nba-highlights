@@ -32,7 +32,7 @@ function downloadThumbnails(gamesAndHighlights) {
 
 exports.getNBAHighlights = async function() {
   // Get the game results
-  const games = await getResults('20190116')
+  const games = await getResults('20190124')
 
   // Get the YouTube highlights from the games
   const gamesAndHighlights = await Promise.all(
@@ -40,7 +40,7 @@ exports.getNBAHighlights = async function() {
       // The NBA timestamps have milliseconds but YouTube only wants down to seconds
       const gameEndTime = game.endTimeUTC.split('.')[0] + 'Z'
       const highlights = await getVideos({
-        query: game.summary,
+        query: game.title,
         publishedAfter: gameEndTime,
       })
 

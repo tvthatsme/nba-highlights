@@ -7,12 +7,18 @@ const scopes = 'https://www.googleapis.com/auth/youtube.readonly'
 const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
 
 exports.getVideos = async function({ query, publishedAfter, maxResults = 10 }) {
-  if (process.env.NODE_ENV === 'development' && fs.existsSync(devFilePath)) {
+  const querySlug = query
+    .replace(/\s+/g, '-')
+    .split('.')
+    .join('')
+    .toLowerCase()
+  const queryFile = `src/data/${querySlug}.json`
+  if (process.env.NODE_ENV === 'development' && fs.existsSync(queryFile)) {
     // In development mode, don't go to YouTube so that the query limit is saved
     // for actual production needs.
     // TODO: Figure out why the query numbers are way more than expected
     console.log('Fetching cached YouTube data for development')
-    return JSON.parse(fs.readFileSync(devFilePath, 'utf8'))
+    return JSON.parse(fs.readFileSync(queryFile, 'utf8'))
   } else {
     try {
       const { data } = await google.youtube('v3').search.list({
@@ -30,11 +36,11 @@ exports.getVideos = async function({ query, publishedAfter, maxResults = 10 }) {
       // create one now for use later.
       if (process.env.NODE_ENV === 'development') {
         try {
-          fs.writeFile(devFilePath, JSON.stringify(data), 'utf8', () => {
-            console.log(`wrote data for development to ${devFilePath}`)
+          fs.writeFile(queryFile, JSON.stringify(data), 'utf8', () => {
+            console.log(`wrote data for development to ${queryFile}`)
           })
         } catch (e) {
-          console.warn(`there was a problem writing to the ${devFilePath}`)
+          console.warn(`there was a problem writing to the ${queryFile}`)
         }
       }
 
