@@ -1,9 +1,13 @@
+require('dotenv').config()
 const { google } = require('googleapis')
 const fs = require('fs')
 
-const key = require('./auth.json')
-const scopes = 'https://www.googleapis.com/auth/youtube.readonly'
-const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
+const jwt = new google.auth.JWT(
+  process.env.CLIENT_EMAIL,
+  null,
+  process.env.PRIVATE_KEY,
+  'https://www.googleapis.com/auth/youtube.readonly'
+)
 
 exports.getVideos = async function({ query, publishedAfter, maxResults = 10 }) {
   const querySlug = query
