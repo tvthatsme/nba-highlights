@@ -2,6 +2,8 @@ require('dotenv').config()
 const { google } = require('googleapis')
 const fs = require('fs')
 
+console.log(process.env)
+
 const jwt = new google.auth.JWT(
   process.env.CLIENT_EMAIL,
   null,
