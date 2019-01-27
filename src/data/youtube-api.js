@@ -1,7 +1,6 @@
 const { google } = require('googleapis')
 const fs = require('fs')
 
-const devFilePath = 'src/data/youtube-data.json'
 const key = require('./auth.json')
 const scopes = 'https://www.googleapis.com/auth/youtube.readonly'
 const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
@@ -12,7 +11,7 @@ exports.getVideos = async function({ query, publishedAfter, maxResults = 10 }) {
     .split('.')
     .join('')
     .toLowerCase()
-  const queryFile = `src/data/${querySlug}.json`
+  const queryFile = `src/data/_dev_${querySlug}.json`
   if (process.env.NODE_ENV === 'development' && fs.existsSync(queryFile)) {
     // In development mode, don't go to YouTube so that the query limit is saved
     // for actual production needs.

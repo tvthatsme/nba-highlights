@@ -4,6 +4,16 @@ const { downloadImage } = require('./images.js')
 
 const thumbnailsPath = 'src/images/highlight-thumbnails/'
 
+function getYesterdaysDate() {
+  let now = new Date()
+  now.setDate(now.getDate() - 1)
+  return now
+    .toISOString()
+    .split('T')[0]
+    .split('-')
+    .join('')
+}
+
 function downloadThumbnails(gamesAndHighlights) {
   const thumbnails = gamesAndHighlights
     .reduce(
@@ -32,7 +42,8 @@ function downloadThumbnails(gamesAndHighlights) {
 
 exports.getNBAHighlights = async function() {
   // Get the game results
-  const games = await getResults('20190124')
+  const date = getYesterdaysDate()
+  const games = await getResults(date)
 
   // Get the YouTube highlights from the games
   const gamesAndHighlights = await Promise.all(

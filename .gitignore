@@ -69,4 +69,5 @@ yarn-error.log
 .yarn-integrity
 
 src/data/auth.json
+src/data/_dev_*
 src/images/highlight-thumbnails/*.jpg
