@@ -51,6 +51,7 @@ exports.getVideos = async function({ query, publishedAfter, maxResults = 10 }) {
       // console.log(data)
       return data
     } catch (e) {
+      console.log(e)
       console.warn(
         'Unable to search YouTube. Maybe the rate limit was exceeded?'
       )
