@@ -68,6 +68,6 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-src/data/auth.json
+# Project specific ignores
 src/data/_dev_*
 src/images/highlight-thumbnails/*.jpg
