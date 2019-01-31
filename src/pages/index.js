@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import GameContainer from '../components/game-container'
 import { H1 } from '../theme/elements.js'
+import { formatDate } from '../utilities/date.js'
 
 const getHighlightThumbnails = (game, images) => {
   return game.highlights.items.reduce((thumbnails, highlight) => {
@@ -59,6 +60,7 @@ const IndexPage = () => (
                   score
                   triCode
                 }
+                startTimeUTC
                 highlights {
                   items {
                     id {
@@ -96,12 +98,15 @@ const IndexPage = () => (
         }
       `}
       render={data => {
+        const firstGameStartUTC = new Date(
+          data.allGameHighlights.edges[0].node.startTimeUTC
+        )
         return (
           <>
             <H1>
               NBA Highlights{' '}
               <span style={{ display: 'block', fontSize: 16 }}>
-                from January 23rd, 2019
+                from {formatDate(firstGameStartUTC)}
               </span>
             </H1>
             {renderGameSections(data)}
