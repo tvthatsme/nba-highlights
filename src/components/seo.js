@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
+// TODO: Figure out a way to get a dynamic image url
+const highlightThumbnail = `https://i.ytimg.com/vi/ZY5jGzRgY8k/mqdefault.jpg`
+
 function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
@@ -23,6 +26,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
+                property: `og:locale`,
+                content: `en_US`,
+              },
+              {
                 property: `og:title`,
                 content: title,
               },
@@ -35,8 +42,24 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: `website`,
               },
               {
+                property: `og:url`,
+                content: data.site.siteMetadata.url,
+              },
+              {
+                property: `og:site_name`,
+                content: data.site.siteMetadata.title,
+              },
+              {
+                property: `og:image`,
+                content: highlightThumbnail,
+              },
+              {
                 name: `twitter:card`,
                 content: `summary`,
+              },
+              {
+                name: `twitter:site`,
+                content: data.site.siteMetadata.url,
               },
               {
                 name: `twitter:creator`,
@@ -44,11 +67,15 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:title`,
-                content: title,
+                content: data.site.siteMetadata.title,
               },
               {
                 name: `twitter:description`,
                 content: metaDescription,
+              },
+              {
+                name: `twitter:image`,
+                content: highlightThumbnail,
               },
             ]
               .concat(
@@ -90,6 +117,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        url
       }
     }
   }

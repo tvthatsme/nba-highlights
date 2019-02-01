@@ -42,7 +42,7 @@ const renderGameSections = data => {
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords={[`nba`, `highlights`, `full game`]} />
     <StaticQuery
       query={graphql`
         query pagesAllGameHighlightsQuery {
