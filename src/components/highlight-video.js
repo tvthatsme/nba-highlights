@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
-import Img from 'gatsby-image'
 import YouTube from 'react-youtube'
 import styled from 'styled-components'
+import HighlightThumbnail from './highlight-thumbnail'
 
 const HighlightCard = styled.div`
   background-color: #111;
   margin: 0 8px;
   padding: 8px 8px 16px;
-
-  &:hover {
-    cursor: pointer;
-  }
 `
 
 const Description = styled.p`
@@ -47,8 +43,8 @@ class HighlightVideo extends Component {
     return (
       <HighlightCard onClick={this.handleClick}>
         {!this.state.video && (
-          <Img
-            fixed={this.props.thumbnail}
+          <HighlightThumbnail
+            src={this.props.thumbnail}
             alt={this.props.video.snippet.title}
           />
         )}
