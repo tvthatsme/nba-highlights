@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Modal from 'react-modal'
 import HighlightThumbnail from './highlight-thumbnail'
 import { AriaOnlyH2 } from '../theme/aria.js'
+import { trackEvent } from '../utilities/analytics.js'
 
 const HighlightCard = styled.div`
   background-color: #111;
@@ -54,11 +55,13 @@ class HighlightVideo extends Component {
 
   openVideoModal = () => {
     this.setState({ modalIsOpen: true })
+    trackEvent({ category: 'video', action: 'start', label: this.props.id })
   }
 
   closeModal = e => {
     e.stopPropagation()
     this.setState({ modalIsOpen: false })
+    trackEvent({ category: 'video', action: 'stop', label: this.props.id })
   }
 
   componentDidMount() {
