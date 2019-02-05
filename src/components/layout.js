@@ -1,39 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { GlobalStyle } from '../theme/global-style.js'
 import BackgroundImage from './background-image'
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <GlobalStyle />
-        <Background>
-          <BackgroundImage />
-        </Background>
-        {children}
-        <footer>
-          <Footer>
-            © {new Date().getFullYear()}, Built by{' '}
-            <FooterLink href="https://twitter.com/tvernon_tech">
-              Timothy Vernon
-            </FooterLink>
-          </Footer>
-        </footer>
-      </>
-    )}
-  />
+  <>
+    <GlobalStyle />
+    <Background>
+      <BackgroundImage />
+    </Background>
+    {children}
+    <footer>
+      <Footer>
+        © {new Date().getFullYear()}, Built by{' '}
+        <FooterLink href="https://tvernon.tech/">Timothy Vernon</FooterLink>
+      </Footer>
+    </footer>
+  </>
 )
 
 Layout.propTypes = {
