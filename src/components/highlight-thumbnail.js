@@ -3,6 +3,25 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import playIcon from '../images/icons/play-circle.svg'
 
+/**
+ * Render a thumbnail for the highlight video. When the area is hovered, show a
+ * play button so the user has a better idea that there is a video to watch.
+ *
+ * @param {Object} props - The properties for the function
+ * @param {childImageSharp.fixed} props.src - Image types for gatsby-image
+ * @param {string} props.alt - Alternate text for thumbnail image
+ */
+const HighlightThumbnail = ({ src, alt }) => (
+  <Thumbnail>
+    <Img fixed={src} alt={alt} />
+    <PlayOverlay>
+      <img src={playIcon} alt="play video" width={50} />
+    </PlayOverlay>
+  </Thumbnail>
+)
+
+export default HighlightThumbnail
+
 // Define an overlay to bring focus to the play button
 const PlayOverlay = styled.div`
   position: absolute;
@@ -28,21 +47,3 @@ const Thumbnail = styled.div`
     opacity: 1;
   }
 `
-/**
- * Render a thumbnail for the highlight video. When the area is hovered, show a
- * play button so the user has a better idea that there is a video to watch.
- *
- * @param {Object} props - The properties for the function
- * @param {childImageSharp.fixed} props.src - Image types for gatsby-image
- * @param {string} props.alt - Alternate text for thumbnail image
- */
-const HighlightThumbnail = ({ src, alt }) => (
-  <Thumbnail>
-    <Img fixed={src} alt={alt} />
-    <PlayOverlay>
-      <img src={playIcon} alt="play video" width={50} />
-    </PlayOverlay>
-  </Thumbnail>
-)
-
-export default HighlightThumbnail

@@ -1,20 +1,7 @@
 import React from 'react'
 import HighlightVideo from './highlight-video'
 import styled from 'styled-components'
-
 import { H2 } from '../theme/elements.js'
-
-const HighlightRow = styled.div`
-  display: flex;
-  flex-direction: 'row';
-  max-width: 100vw;
-  overflow-x: scroll;
-`
-
-const Score = styled.p`
-  text-align: center;
-  margin: 0 0 16px;
-`
 
 const GameContainer = ({ game, thumbnails }) => {
   return (
@@ -47,3 +34,15 @@ const GameContainer = ({ game, thumbnails }) => {
 }
 
 export default GameContainer
+
+const HighlightRow = styled.div`
+  display: flex;
+  flex-direction: 'row';
+  max-width: 100vw;
+  overflow-x: scroll;
+`
+
+const Score = styled.p`
+  text-align: center;
+  margin: 0 0 16px;
+`
