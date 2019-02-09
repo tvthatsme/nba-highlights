@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import YouTube from 'react-youtube'
 import styled from 'styled-components'
 import Modal from 'react-modal'
@@ -6,54 +6,38 @@ import HighlightThumbnail from './highlight-thumbnail'
 import { AriaOnlyH2 } from '../theme/aria.js'
 import { trackEvent } from '../utilities/analytics.js'
 
-class HighlightVideo extends Component {
-  constructor(props) {
-    super(props)
+const HighlightVideo = ({ id, thumbnail, video }) => {
+  Modal.setAppElement('#___gatsby')
 
-    this.state = {
-      modalIsOpen: false,
-    }
+  const [isModalOpen, setModalOpen] = useState(false)
+
+  const openVideoModal = () => {
+    setModalOpen(true)
+    trackEvent({ category: 'video', action: 'start', label: id })
   }
 
-  openVideoModal = () => {
-    this.setState({ modalIsOpen: true })
-    trackEvent({ category: 'video', action: 'start', label: this.props.id })
-  }
-
-  closeModal = e => {
+  const closeModal = e => {
     e.stopPropagation()
-    this.setState({ modalIsOpen: false })
-    trackEvent({ category: 'video', action: 'stop', label: this.props.id })
+    setModalOpen(false)
+    trackEvent({ category: 'video', action: 'stop', label: id })
   }
 
-  componentDidMount() {
-    Modal.setAppElement('#___gatsby')
-  }
-
-  render() {
-    return (
-      <HighlightCard onClick={this.openVideoModal}>
-        <HighlightThumbnail
-          src={this.props.thumbnail}
-          alt={this.props.video.snippet.title}
-        />
-        <Description>
-          {this.props.video.snippet.title.split('|')[0].trim()}
-        </Description>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Highlight Video Modal"
-          shouldCloseOnOverlayClick={true}
-        >
-          <AriaOnlyH2>{this.props.video.snippet.title}</AriaOnlyH2>
-          <YouTube videoId={this.props.id} opts={youtubeOptions} />
-        </Modal>
-      </HighlightCard>
-    )
-  }
+  return (
+    <HighlightCard onClick={openVideoModal}>
+      <HighlightThumbnail src={thumbnail} alt={video.snippet.title} />
+      <Description>{video.snippet.title.split('|')[0].trim()}</Description>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Highlight Video Modal"
+        shouldCloseOnOverlayClick={true}
+      >
+        <AriaOnlyH2>{video.snippet.title}</AriaOnlyH2>
+        <YouTube videoId={id} opts={youtubeOptions} />
+      </Modal>
+    </HighlightCard>
+  )
 }
 
 export default HighlightVideo
