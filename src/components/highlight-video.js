@@ -6,19 +6,21 @@ import HighlightThumbnail from './highlight-thumbnail'
 import { AriaOnlyH2 } from '../theme/aria.js'
 import { trackEvent } from '../utilities/analytics.js'
 
-const HighlightVideo = ({ id, thumbnail, video }) => {
-  Modal.setAppElement('#___gatsby')
+Modal.setAppElement('#___gatsby')
 
+const HighlightVideo = ({ id, thumbnail, video }) => {
   const [isModalOpen, setModalOpen] = useState(false)
 
   const openVideoModal = () => {
     setModalOpen(true)
+    document.body.style.overflow = 'hidden'
     trackEvent({ category: 'video', action: 'start', label: id })
   }
 
   const closeModal = e => {
     e.stopPropagation()
     setModalOpen(false)
+    document.body.style.overflow = 'visible'
     trackEvent({ category: 'video', action: 'stop', label: id })
   }
 
@@ -34,7 +36,9 @@ const HighlightVideo = ({ id, thumbnail, video }) => {
         shouldCloseOnOverlayClick={true}
       >
         <AriaOnlyH2>{video.snippet.title}</AriaOnlyH2>
-        <YouTube videoId={id} opts={youtubeOptions} />
+        <VideoWrapper>
+          <YouTube videoId={id} opts={youtubeOptions} />
+        </VideoWrapper>
       </Modal>
     </HighlightCard>
   )
@@ -80,4 +84,10 @@ const Description = styled.p`
   text-align: center;
   margin: 16px 0 0;
   padding: 0 24px;
+`
+
+const VideoWrapper = styled.div`
+  iframe {
+    max-width: 100vw;
+  }
 `
