@@ -76,7 +76,7 @@ const customStyles = {
 
 const HighlightCard = styled.div`
   background-color: #111;
-  margin: 0 8px;
+  margin: 0 16px;
   padding: 8px 8px 16px;
 `
 
