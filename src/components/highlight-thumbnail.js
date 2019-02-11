@@ -42,6 +42,7 @@ const PlayOverlay = styled.div`
 // Define the area for the thumbnail and overlay
 const Thumbnail = styled.div`
   position: relative;
+  min-width: 320px;
 
   &:hover ${PlayOverlay} {
     opacity: 1;
