@@ -109,6 +109,11 @@ const IndexPage = () => (
                 from {formatDate(firstGameStartUTC)}
               </span>
             </H1>
+            <p style={{ textAlign: 'center' }}>
+              Catch up on all the action around the league in one place. Scores
+              and full-game highlights from last night's games compiled for you
+              daily.
+            </p>
             {renderGameSections(data)}
           </>
         )
