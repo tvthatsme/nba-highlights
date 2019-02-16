@@ -82,9 +82,9 @@ const HighlightCard = styled.div`
 `
 
 const Description = styled.p`
-  text-align: center;
+  text-align: left;
   margin: 16px 0 0;
-  padding: 0 24px;
+  padding: 0;
 `
 
 const VideoWrapper = styled.div`

@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -105,15 +106,13 @@ const IndexPage = () => (
           <>
             <H1>
               NBA Highlights{' '}
-              <span style={{ display: 'block', fontSize: 16 }}>
-                from {formatDate(firstGameStartUTC)}
-              </span>
+              <SubTitle>from {formatDate(firstGameStartUTC)}</SubTitle>
             </H1>
-            <p style={{ textAlign: 'center' }}>
+            <Tagline>
               Catch up on all the action around the league in one place. Scores
               and full-game highlights from last night's games compiled for you
               daily.
-            </p>
+            </Tagline>
             {renderGameSections(data)}
           </>
         )
@@ -123,3 +122,20 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+const SubTitle = styled.span`
+  display: block;
+  font-size: 16px;
+  margin-top: 16px;
+  font-weight: 200;
+`
+
+const Tagline = styled.p`
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  margin: 0 auto;
+  max-width: 732px;
+  padding: 0 16px;
+  font-style: italic;
+`

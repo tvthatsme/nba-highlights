@@ -38,6 +38,7 @@ const GameContainer = ({ game, thumbnails }) => {
 export default GameContainer
 
 const Score = styled.p`
-  text-align: center;
-  margin: 0 0 16px;
+  text-align: left;
+  margin: 0 16px 16px;
+  font-weight: 200;
 `
