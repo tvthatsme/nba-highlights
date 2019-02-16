@@ -8,12 +8,12 @@ import playIcon from '../images/icons/play-circle.svg'
  * play button so the user has a better idea that there is a video to watch.
  *
  * @param {Object} props - The properties for the function
- * @param {childImageSharp.fixed} props.src - Image types for gatsby-image
+ * @param {childImageSharp.fluid} props.src - Image types for gatsby-image
  * @param {string} props.alt - Alternate text for thumbnail image
  */
 const HighlightThumbnail = ({ src, alt }) => (
   <Thumbnail>
-    <Img fixed={src} alt={alt} />
+    <Img fluid={src} alt={alt} />
     <PlayOverlay>
       <img src={playIcon} alt="play video" width={50} />
     </PlayOverlay>
@@ -27,7 +27,7 @@ const PlayOverlay = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 3px;
+  bottom: 0;
   left: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);

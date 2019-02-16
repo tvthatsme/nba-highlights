@@ -14,7 +14,7 @@ const getHighlightThumbnails = (game, images) => {
         if (!image.node.childImageSharp) {
           return false
         } else {
-          return image.node.childImageSharp.fixed.src.includes(
+          return image.node.childImageSharp.fluid.src.includes(
             highlight.id.videoId
           )
         }
@@ -88,8 +88,8 @@ const IndexPage = () => (
             edges {
               node {
                 childImageSharp {
-                  fixed(width: 320, height: 180, quality: 90) {
-                    ...GatsbyImageSharpFixed_withWebp
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }

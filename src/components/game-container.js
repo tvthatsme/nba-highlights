@@ -1,7 +1,9 @@
 import React from 'react'
-import HighlightVideo from './highlight-video'
 import styled from 'styled-components'
+
 import { H2 } from '../theme/elements.js'
+import HighlightVideo from './highlight-video'
+import Carousel from './carousel/carousel.js'
 
 const GameContainer = ({ game, thumbnails }) => {
   return (
@@ -11,13 +13,13 @@ const GameContainer = ({ game, thumbnails }) => {
         {game.vTeam.triCode} {game.vTeam.score} - {game.hTeam.triCode}{' '}
         {game.hTeam.score}
       </Score>
-      <HighlightRow>
+      <Carousel>
         {game.highlights.items.map(video => {
           const thumbnail = thumbnails.filter(thumbnail => {
-            return thumbnail.node.childImageSharp.fixed.src.includes(
+            return thumbnail.node.childImageSharp.fluid.src.includes(
               video.id.videoId
             )
-          })[0].node.childImageSharp.fixed
+          })[0].node.childImageSharp.fluid
 
           return (
             <HighlightVideo
@@ -28,19 +30,12 @@ const GameContainer = ({ game, thumbnails }) => {
             />
           )
         })}
-      </HighlightRow>
+      </Carousel>
     </>
   )
 }
 
 export default GameContainer
-
-const HighlightRow = styled.div`
-  display: flex;
-  flex-direction: 'row';
-  max-width: 100vw;
-  overflow-x: scroll;
-`
 
 const Score = styled.p`
   text-align: center;
