@@ -2,9 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Layout from '../components/layout'
+import Layout from '../components/layout/layout.js'
 import SEO from '../components/seo'
-import GameContainer from '../components/game-container'
+import GameContainer from '../components/game-container/game-container.js'
 import { H1 } from '../theme/elements.js'
 import { formatDate } from '../utilities/date.js'
 

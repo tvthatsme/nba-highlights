@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
+// components
 import ChevronLeft from '../../icons/chevron-left.js'
 import ChevronRight from '../../icons/chevron-right.js'
 import useWindowSize from '../../hooks/useWindowSize.js'

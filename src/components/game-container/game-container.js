@@ -1,9 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import { H2 } from '../theme/elements.js'
-import HighlightVideo from './highlight-video'
-import Carousel from './carousel/carousel.js'
+// components
+import { H2 } from '../../theme/elements.js'
+import Video from '../video/video.js'
+import Carousel from '../carousel/carousel.js'
+
+// styled-components
+import { Score } from './styles.js'
 
 const GameContainer = ({ game, thumbnails }) => {
   return (
@@ -22,7 +25,7 @@ const GameContainer = ({ game, thumbnails }) => {
           })[0].node.childImageSharp.fluid
 
           return (
-            <HighlightVideo
+            <Video
               key={video.id.videoId}
               id={video.id.videoId}
               thumbnail={thumbnail}
@@ -36,9 +39,3 @@ const GameContainer = ({ game, thumbnails }) => {
 }
 
 export default GameContainer
-
-const Score = styled.p`
-  text-align: left;
-  margin: 0 16px 16px;
-  font-weight: 200;
-`
