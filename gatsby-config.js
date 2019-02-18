@@ -20,12 +20,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `All The Highlights`,
+        short_name: `All The Highlights`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+        include_favicon: true,
       },
     },
     {
