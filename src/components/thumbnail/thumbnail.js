@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 
 // components
-import playIcon from '../../images/icons/play-circle.svg'
+import PlayCircle from '../../icons/play-circle.js'
 
 // styled-components
 import { Container, PlayOverlay } from './styles.js'
@@ -19,7 +19,7 @@ const Thumbnail = ({ src, alt }) => (
   <Container>
     <Img fluid={src} alt={alt} />
     <PlayOverlay>
-      <img src={playIcon} alt="play video" width={50} />
+      <PlayCircle width="50" height="50" />
     </PlayOverlay>
   </Container>
 )
