@@ -2,8 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 
 // components
-import playIcon from '../images/icons/play-circle.svg'
-import { Container } from '../carousel/styles.js'
+import playIcon from '../../images/icons/play-circle.svg'
 
 // styled-components
 import { Container, PlayOverlay } from './styles.js'
