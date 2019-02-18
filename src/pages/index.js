@@ -105,7 +105,7 @@ const IndexPage = () => (
         return (
           <>
             <H1>
-              NBA Highlights{' '}
+              All The NBA Highlights{' '}
               <SubTitle>from {formatDate(firstGameStartUTC)}</SubTitle>
             </H1>
             <Tagline>
