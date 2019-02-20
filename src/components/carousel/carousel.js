@@ -22,6 +22,12 @@ const Carousel = ({ children }) => {
   const [offset, setOffset] = useState(0)
   let { width } = useWindowSize()
 
+  // In the case of server-side rendering, width will be undefined, but if we
+  // set it to null this case, width wont be set and css styles can run with it
+  if (typeof width === 'undefined') {
+    width = null
+  }
+
   // Define the number of slides and the width for each
   const slides = Math.floor(width / 300)
   const slideWidth = 100 / slides
