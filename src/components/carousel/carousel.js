@@ -22,11 +22,6 @@ const Carousel = ({ children }) => {
   const [offset, setOffset] = useState(0)
   let { width } = useWindowSize()
 
-  // TODO: Figure out how make this work with SSR
-  if (typeof width === 'undefined') {
-    width = 1200
-  }
-
   // Define the number of slides and the width for each
   const slides = Math.floor(width / 300)
   const slideWidth = 100 / slides

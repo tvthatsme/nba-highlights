@@ -53,4 +53,24 @@ export const CarouselArea = styled.div`
 
 export const CarouselItem = styled.div`
   height: 100%;
+
+  @media (max-width: 600px) {
+    width: 100vw;
+  }
+
+  @media (max-width: 900px) {
+    width: 50vw;
+  }
+
+  @media (max-width: 1200px) {
+    width: 33.3333vw;
+  }
+
+  @media (max-width: 1200px) {
+    width: 25vw;
+  }
+
+  @media (max-width: 1500px) {
+    width: 20vw;
+  }
 `
