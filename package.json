@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Timothy Vernon <timothy.n.vernon@gmail.com>",
   "dependencies": {
+    "@sentry/browser": "^4.6.3",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "date-fns": "^1.30.1",
