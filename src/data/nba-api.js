@@ -34,7 +34,7 @@ const getLastScoreboard = async function(date) {
  */
 exports.getResults = async function() {
   try {
-    const { data } = await getLastScoreboard(new Date())
+    const { data } = await getLastScoreboard(subDays(new Date(), 1))
     // TODO: The year won't always be 2018 but 2019 doesn't start until summer league?
     const seasonYear = data.games.length ? data.games[0].seasonYear : '2018'
     const teams = await exports.getTeams(seasonYear)
