@@ -52,6 +52,7 @@ const IndexPage = () => (
               node {
                 id
                 title
+                startDateEastern
                 summary
                 vTeam {
                   score
@@ -61,7 +62,6 @@ const IndexPage = () => (
                   score
                   triCode
                 }
-                startTimeUTC
                 highlights {
                   items {
                     id {
@@ -99,14 +99,16 @@ const IndexPage = () => (
         }
       `}
       render={data => {
-        const firstGameStartUTC = new Date(
-          data.allGameHighlights.edges[0].node.startTimeUTC
-        )
         return (
           <>
             <H1>
               All The NBA Highlights{' '}
-              <SubTitle>from {formatDate(firstGameStartUTC)}</SubTitle>
+              <SubTitle>
+                from{' '}
+                {formatDate(
+                  data.allGameHighlights.edges[0].node.startDateEastern
+                )}
+              </SubTitle>
             </H1>
             <Tagline>
               Catch up on all the action around the league in one place. Scores

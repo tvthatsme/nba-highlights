@@ -5,7 +5,7 @@ exports.onClientEntry = () => {
   Sentry.init({
     dsn: process.env.GATSBY_SENTRY_DSN_URL,
     environment: process.env.NODE_ENV,
-    enabled: () => process.env.NODE_ENV === 'production',
+    enabled: () => process.env.NODE_ENV !== 'development',
   })
   window.Sentry = Sentry
 }

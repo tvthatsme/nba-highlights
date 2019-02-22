@@ -41,7 +41,7 @@ exports.getResults = async function() {
 
     // Get the relevant data from the response
     const relevantData = data.games.map(game => {
-      const { vTeam, hTeam, arena, startTimeUTC, endTimeUTC } = game
+      const { vTeam, hTeam, arena, startDateEastern, endTimeUTC } = game
 
       // Get the full team name for both home and visiting teams
       const { fullName: vTeamName } = teams.find(
@@ -63,7 +63,7 @@ exports.getResults = async function() {
           fullName: hTeamName,
         }),
         arena,
-        startTimeUTC,
+        startDateEastern,
         endTimeUTC,
       })
     })
