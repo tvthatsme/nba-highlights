@@ -40,7 +40,12 @@ const Carousel = ({ children }) => {
   return (
     <Container>
       <ControlArea back>
-        <Button onClick={() => setOffset(offset - 1)} disabled={offset === 0}>
+        <Button
+          type="button"
+          aria-label="View previous videos from this game"
+          onClick={() => setOffset(offset - 1)}
+          disabled={offset === 0}
+        >
           <ChevronLeft />
         </Button>
       </ControlArea>
@@ -56,6 +61,8 @@ const Carousel = ({ children }) => {
       </AnimatedCarousel>
       <ControlArea forward>
         <Button
+          type="button"
+          aria-label="View next videos from this game"
           onClick={() => setOffset(offset + 1)}
           disabled={offset === children.length - slides}
         >
