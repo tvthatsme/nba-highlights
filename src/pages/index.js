@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout.js'
@@ -41,89 +41,73 @@ const renderGameSections = data => {
   )
 }
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`nba`, `highlights`, `full game`]} />
-    <StaticQuery
-      query={graphql`
-        query pagesAllGameHighlightsQuery {
-          allGameHighlights {
-            edges {
-              node {
-                id
-                title
-                startDateEastern
-                summary
-                vTeam {
-                  score
-                  triCode
-                }
-                hTeam {
-                  score
-                  triCode
-                }
-                highlights {
-                  items {
-                    id {
-                      kind
-                      videoId
-                    }
-                    snippet {
-                      title
-                      thumbnails {
-                        medium {
-                          url
-                          width
-                          height
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+const IndexPage = () => {
+  const data = useStaticQuery(pageQuery)
+  return (
+    <Layout>
+      <SEO title="Home" keywords={[`nba`, `highlights`, `full game`]} />
+      <H1>
+        All The NBA Highlights{' '}
+        <SubTitle>
+          from{' '}
+          {formatDate(data.allGameHighlights.edges[0].node.startDateEastern)}
+        </SubTitle>
+      </H1>
+      <Tagline>
+        Catch up on all the action around the league in one place. Scores and
+        full-game highlights from last night's games compiled for you daily.
+      </Tagline>
+      {renderGameSections(data)}
+    </Layout>
+  )
+}
+
+export default IndexPage
+
+const pageQuery = graphql`
+  query pagesAllGameHighlightsQuery {
+    allGameHighlights {
+      edges {
+        node {
+          id
+          title
+          startDateEastern
+          summary
+          vTeam {
+            score
+            triCode
           }
-          allFile(
-            filter: { relativePath: { regex: "/highlight-thumbnails/" } }
-          ) {
-            edges {
-              node {
-                childImageSharp {
-                  fluid(maxWidth: 500, quality: 90) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
+          hTeam {
+            score
+            triCode
+          }
+          highlights {
+            items {
+              id {
+                kind
+                videoId
+              }
+              snippet {
+                title
               }
             }
           }
         }
-      `}
-      render={data => {
-        return (
-          <>
-            <H1>
-              All The NBA Highlights{' '}
-              <SubTitle>
-                from{' '}
-                {formatDate(
-                  data.allGameHighlights.edges[0].node.startDateEastern
-                )}
-              </SubTitle>
-            </H1>
-            <Tagline>
-              Catch up on all the action around the league in one place. Scores
-              and full-game highlights from last night's games compiled for you
-              daily.
-            </Tagline>
-            {renderGameSections(data)}
-          </>
-        )
-      }}
-    />
-  </Layout>
-)
-
-export default IndexPage
+      }
+    }
+    allFile(filter: { relativePath: { regex: "/highlight-thumbnails/" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 500, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 const SubTitle = styled.span`
   display: block;
