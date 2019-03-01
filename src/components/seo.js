@@ -42,7 +42,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:url`,
-          content: siteMetadata.url,
+          content: siteMetadata.siteUrl,
         },
         {
           property: `og:site_name`,
@@ -58,7 +58,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:site`,
-          content: siteMetadata.url,
+          content: siteMetadata.siteUrl,
         },
         {
           name: `twitter:creator`,
@@ -113,7 +113,7 @@ const detailsQuery = graphql`
         title
         description
         author
-        url
+        siteUrl
       }
     }
   }

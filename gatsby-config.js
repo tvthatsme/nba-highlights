@@ -3,7 +3,7 @@ module.exports = {
     title: `All The Highlights`,
     description: `Watch all of yesterday's NBA highlights in one place`,
     author: `@tvernon_tech`,
-    url: `https://allthehighlights.com`,
+    siteUrl: `https://allthehighlights.com`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
