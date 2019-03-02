@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import YouTube from 'react-youtube'
 import Modal from 'react-modal'
 
-// components
+// components and utilities
 import Thumbnail from '../thumbnail/thumbnail.js'
 import { AriaOnlyH2 } from '../../theme/aria.js'
 import { trackEvent } from '../../utilities/analytics.js'
+import { decodeText } from '../../utilities/strings.js'
 
 // styled-components
 import {
@@ -36,7 +37,7 @@ const HighlightVideo = ({ id, thumbnail, video }) => {
   return (
     <HighlightCard onClick={openVideoModal}>
       <Thumbnail src={thumbnail} alt={video.snippet.title} />
-      <Description>{video.snippet.title.split('|')[0].trim()}</Description>
+      <Description>{decodeText(video.snippet.title)}</Description>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
