@@ -27,7 +27,7 @@ const getHighlightThumbnails = (game, images) => {
 const renderGameSections = data => {
   return (
     <>
-      {data.allGameHighlights.edges.map(game => {
+      {data.allNba.edges.map(game => {
         const thumbnails = getHighlightThumbnails(game.node, data.allFile.edges)
         return (
           <GameContainer
@@ -49,8 +49,7 @@ const IndexPage = () => {
       <H1>
         All The NBA Highlights{' '}
         <SubTitle>
-          from{' '}
-          {formatDate(data.allGameHighlights.edges[0].node.startDateEastern)}
+          from {formatDate(data.allNba.edges[0].node.startDateEastern)}
         </SubTitle>
       </H1>
       <Tagline>
@@ -65,8 +64,8 @@ const IndexPage = () => {
 export default IndexPage
 
 const pageQuery = graphql`
-  query pagesAllGameHighlightsQuery {
-    allGameHighlights {
+  query indexPageQuery {
+    allNba {
       edges {
         node {
           id
@@ -84,7 +83,6 @@ const pageQuery = graphql`
           highlights {
             items {
               id {
-                kind
                 videoId
               }
               snippet {
