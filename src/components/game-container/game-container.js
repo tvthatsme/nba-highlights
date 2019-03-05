@@ -8,7 +8,7 @@ import Carousel from '../carousel/carousel.js'
 // styled-components
 import { Score } from './styles.js'
 
-const GameContainer = ({ game, thumbnails }) => {
+const GameContainer = ({ game }) => {
   return (
     <>
       <H2>{game.title}</H2>
@@ -17,18 +17,12 @@ const GameContainer = ({ game, thumbnails }) => {
         {game.hTeam.score}
       </Score>
       <Carousel>
-        {game.highlights.items.map(video => {
-          const thumbnail = thumbnails.filter(thumbnail => {
-            return thumbnail.node.childImageSharp.fluid.src.includes(
-              video.id.videoId
-            )
-          })[0].node.childImageSharp.fluid
-
+        {game.childrenHighlight.map(video => {
           return (
             <Video
-              key={video.id.videoId}
-              id={video.id.videoId}
-              thumbnail={thumbnail}
+              key={video.id}
+              id={video.id}
+              thumbnail={video.childrenFile[0].childImageSharp.fluid}
               video={video}
             />
           )

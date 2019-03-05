@@ -8,39 +8,6 @@ import GameContainer from '../components/game-container/game-container.js'
 import { H1 } from '../theme/elements.js'
 import { formatDate } from '../utilities/date.js'
 
-const getHighlightThumbnails = (game, images) => {
-  return game.highlights.items.reduce((thumbnails, highlight) => {
-    return thumbnails.concat(
-      images.filter(image => {
-        if (!image.node.childImageSharp) {
-          return false
-        } else {
-          return image.node.childImageSharp.fluid.src.includes(
-            highlight.id.videoId
-          )
-        }
-      })
-    )
-  }, [])
-}
-
-const renderGameSections = data => {
-  return (
-    <>
-      {data.allNba.edges.map(game => {
-        const thumbnails = getHighlightThumbnails(game.node, data.allFile.edges)
-        return (
-          <GameContainer
-            key={game.node.id}
-            game={game.node}
-            thumbnails={thumbnails}
-          />
-        )
-      })}
-    </>
-  )
-}
-
 const IndexPage = () => {
   const data = useStaticQuery(pageQuery)
   return (
@@ -56,7 +23,9 @@ const IndexPage = () => {
         Catch up on all the action around the league in one place. Scores and
         full-game highlights from last night's games compiled for you daily.
       </Tagline>
-      {renderGameSections(data)}
+      {data.allNba.edges.map(game => {
+        return <GameContainer key={game.node.id} game={game.node} />
+      })}
     </Layout>
   )
 }
@@ -80,25 +49,18 @@ const pageQuery = graphql`
             score
             triCode
           }
-          highlights {
-            items {
-              id {
-                videoId
-              }
-              snippet {
-                title
-              }
+          childrenHighlight {
+            id
+            snippet {
+              title
             }
-          }
-        }
-      }
-    }
-    allFile(filter: { relativePath: { regex: "/highlight-thumbnails/" } }) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 500, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+            childrenFile {
+              id
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
           }
         }
