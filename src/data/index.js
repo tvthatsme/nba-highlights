@@ -1,9 +1,5 @@
 const { getResults } = require('./nba-api.js')
 const { getVideos } = require('./youtube-api.js')
-const { downloadImages } = require('./images.js')
-
-// Define the default path to store thumbnails at
-const thumbnailsPath = 'src/images/highlight-thumbnails/'
 
 exports.getNBAHighlights = async function() {
   // Get the game results
@@ -24,24 +20,6 @@ exports.getNBAHighlights = async function() {
       })
     })
   )
-
-  // Create an array of the thumbnails we will need to download
-  // for gatsby-image later in the build stage.
-  const thumbnails = gamesAndHighlights.reduce(
-    (thumbnails, game) =>
-      thumbnails.concat(
-        game.highlights.items.map(highlight => {
-          return {
-            filename: thumbnailsPath + highlight.id.videoId + '.jpg',
-            url: highlight.snippet.thumbnails.medium.url,
-          }
-        })
-      ),
-    []
-  )
-
-  // Download the thumbnails for the YouTube videos
-  await downloadImages(thumbnails)
 
   return gamesAndHighlights
 }
