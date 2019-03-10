@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-// TODO: Figure out a way to get a dynamic image url
-const highlightThumbnail = `https://i.ytimg.com/vi/ZY5jGzRgY8k/mqdefault.jpg`
-
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image }) {
   const {
     site: { siteMetadata },
   } = useStaticQuery(detailsQuery)
   const metaDescription = description || siteMetadata.description
+  const previewImage = image
+    ? image
+    : `https://i.ytimg.com/vi/ZY5jGzRgY8k/mqdefault.jpg`
 
   return (
     <Helmet
@@ -50,7 +50,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:image`,
-          content: highlightThumbnail,
+          content: previewImage,
         },
         {
           name: `twitter:card`,
@@ -74,7 +74,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:image`,
-          content: highlightThumbnail,
+          content: previewImage,
         },
       ]
         .concat(
@@ -102,6 +102,7 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
 export default SEO
