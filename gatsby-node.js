@@ -1,4 +1,5 @@
 const crypto = require('crypto')
+const path = require('path')
 const { getNBAHighlights } = require('./src/data/index.js')
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
@@ -41,12 +42,18 @@ exports.sourceNodes = async ({ actions }) => {
   const nbaHighlights = await getNBAHighlights()
 
   // Create nodes for each item in nba highlights
+
+  // TODO: Refactor this section to be less about nba highlights
+  // and more generic for an array of sport types.
   nbaHighlights.forEach(async node => {
     const gameNode = await makeNewNode({
       createNode,
-      node,
-      type: 'nba',
-      description: 'nba game data and highlights',
+      node: {
+        ...node,
+        highlights: null,
+        sport: 'nba',
+      },
+      type: 'Game',
     })
 
     node.highlights.items.forEach(async highlight => {
@@ -90,6 +97,30 @@ exports.onCreateNode = async ({ node, actions, store, cache }) => {
       internal: {
         type: `highlightThumbnail`,
       },
+    })
+  }
+}
+
+/**
+ * Create a page for highlights by sport
+ */
+exports.createPages = ({ actions }) => {
+  const template = path.resolve(`src/templates/highlights-by-sport.js`)
+  const sports = ['nba']
+
+  // For now we only have one sport with highlights, so having index plus
+  // a named page is overkill. But in the future, the index page will be
+  // more of an overview and we will want to generate a seperate page per
+  // sport.
+  if (sports.length > 1) {
+    sports.forEach(sport => {
+      actions.createPage({
+        path: `/${sport}`,
+        component: template,
+        context: {
+          sport,
+        },
+      })
     })
   }
 }

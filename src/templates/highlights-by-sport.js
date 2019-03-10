@@ -1,18 +1,20 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout/layout.js'
-import SEO from '../components/seo'
+import SEO from '../components/seo.js'
 import GameContainer from '../components/game-container/game-container.js'
 import { H1 } from '../theme/elements.js'
 import { formatDate } from '../utilities/date.js'
 
-const IndexPage = () => {
-  const data = useStaticQuery(pageQuery)
+const IndexPage = ({ data }) => {
   const image =
     data.featured.edges[0].node.childrenHighlight[0].snippet.thumbnails.medium
       .url
+
+  // TODO: Refactor this to be either more generic or have a way to show
+  // different SEO, H1 and tagline per sport
   return (
     <Layout>
       <SEO
@@ -39,11 +41,11 @@ const IndexPage = () => {
 
 export default IndexPage
 
-const pageQuery = graphql`
-  query indexPageQuery {
-    # Get the featured nba game
+export const pageQuery = graphql`
+  query PageBySportType($sport: String!) {
+    # Get the featured game
     featured: allGame(
-      filter: { featured: { eq: true }, sport: { eq: "nba" } }
+      filter: { featured: { eq: true }, sport: { eq: $sport } }
     ) {
       edges {
         node {
@@ -60,8 +62,8 @@ const pageQuery = graphql`
         }
       }
     }
-    # Get all the nba games
-    games: allGame(filter: { sport: { eq: "nba" } }) {
+    # Get all the games for the sport
+    games: allGame(filter: { sport: { eq: $sport } }) {
       edges {
         node {
           id

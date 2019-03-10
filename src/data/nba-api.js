@@ -29,6 +29,37 @@ const getLastScoreboard = async function(date) {
   }
 }
 
+const choseFeaturedGame = games => {
+  // There are a lot of options for how to chose a game to feature:
+  // - Closest game?
+  // - Teams with the best records playing each other?
+  // - Star power?
+
+  // Over time, it might make sense to adjust this, but for now, the
+  // game with the closest score seems to be something worth featuring.
+  let closestIndex = 0
+  let closestDiff = 1000
+  for (let i = 0; i < games.length; i++) {
+    const { hTeam, vTeam } = games[i]
+    const gameDiff = Math.abs(hTeam.score - vTeam.score)
+    if (gameDiff < closestDiff) {
+      closestIndex = i
+      closestDiff = gameDiff
+    }
+  }
+
+  const featuredGameId = games[closestIndex].id
+
+  // Now that we have the featured game, map through the array of games
+  // and create a new array, this time with the featured flag
+  return games.map(game => {
+    return {
+      ...game,
+      featured: game.id === featuredGameId,
+    }
+  })
+}
+
 /**
  * Get results of past games and create a JSON object of what we are interested in.
  */
@@ -71,7 +102,7 @@ exports.getResults = async function() {
       })
     })
 
-    return relevantData
+    return choseFeaturedGame(relevantData)
   } catch (error) {
     console.log(`Error getting results: ${error}`)
     return []

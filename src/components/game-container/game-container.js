@@ -9,6 +9,9 @@ import Carousel from '../carousel/carousel.js'
 import { Score } from './styles.js'
 
 const GameContainer = ({ game }) => {
+  // TODO: Not all sports might have triCodes for the teams. In the future it
+  // would be good to see if we can figure out a generic way to save this
+  // data.
   return (
     <>
       <H2>{game.title}</H2>
