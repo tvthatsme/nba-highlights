@@ -31,6 +31,15 @@ There are a couple of key-contributors to keeping this site fast:
 
 Contributions of any size are very welcome! While I consider this a personal project and am interested mainly in NBA highlights, I would like to see this grow into a platform where other sports highlights can be consumed.
 
+>**Note**: In order to build the project locally, you will need to have a couple fields set in your environment variables or in an `.env` file that you create.
+
+Environment variables used in this project:
+- `CLIENT_EMAIL` - Service account email from Google for the YouTube Data API v3.
+- `PRIVATE_KEY` - Service account private key from Google for the YouTube Data API v3.
+- `GATSBY_SENTRY_DSN_URL` - Key used for sentry.io error monitoring. Just PM me and I can get you a copy.
+
+In order to create a service account key for the YouTube Data API, you can follow [this guide](https://flaviocopes.com/google-api-authentication/).
+
 ## Roadmap
 
 This project is live now, but is in no way complete. There are a lot of things that I'd like to add or improve:
